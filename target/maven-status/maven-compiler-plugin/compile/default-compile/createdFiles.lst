@@ -1,0 +1,7 @@
+com/example/erp/util/Transacional.class
+com/example/erp/model/Planeta.class
+com/example/erp/repository/Planetas.class
+com/example/erp/controller/PlanetasBean.class
+com/example/erp/service/PlanetasService.class
+com/example/erp/util/EntityManagerProducer.class
+com/example/erp/util/TransacionalInterceptor.class

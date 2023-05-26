@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	template="WEB-INF/template/Layout.xhtml">
+	
+<ui:define name="titulo">
+	Lista de Planetas
+</ui:define>
+	
+<ui:define name="conteudo">
+	<f:metadata>
+		<f:viewAction action="#{planetasBean.pesquisarTodos}" />
+	</f:metadata>
+	
+	<h:form id="planetaForm">
+		<p:toolbar id="planetasToolbar" >
+			<p:toolbarGroup>
+				<p:inputText id="termoPesquisa" placeholder="Digite um ID ou nome para pesquisa..." 
+						size="30" style="margin-right:10px"
+						value="#{planetasBean.termoPesquisa}"/>
+				<p:commandButton value="Pesquisar" icon="pi pi-search" process="@this termoPesquisa"
+						actionListener="#{planetasBean.pesquisarPlanetas}" update="planetasDataTable" />
+			</p:toolbarGroup>
+			
+			<p:toolbarGroup>			
+				<p:commandButton value="Adicionar planeta" icon="pi pi-plus" 
+						styleClass="ui-button-success" style="margin-right:10px"
+						action="#{planetasBean.viewDialog}" process="@this"> 
+						<p:ajax event="dialogReturn" listener="#{planetasBean.pesquisarTodos}" update="planetasDataTable" />
+				</p:commandButton>
+				<p:commandButton type="submit" value="Excluir planeta" icon="pi pi-times" 
+						styleClass="ui-button-danger" process="@this"
+						disabled="#{!(planetasBean.planetaSelecionado())}" 
+						actionListener="#{planetasBean.excluirPlaneta}" 
+						update="planetasDataTable planetasToolbar"
+						oncomplete="#{planetasBean.pesquisarTodos()}"> 
+				</p:commandButton>
+			</p:toolbarGroup>
+		</p:toolbar>
+		
+		<p:spacer height="20px"/>
+	
+		<p:dataTable id="planetasDataTable" value="#{planetasBean.listaPlanetas}" 
+			var="planeta" emptyMessage="Nenhum planeta foi encontrado."
+			paginator="true" rows="10" paginatorPosition="bottom"
+			selectionMode="single" selection="#{planetasBean.planeta}" rowKey="#{planeta.id}">
+			
+			<p:ajax event="rowSelect" update="planetaForm:planetasToolbar" />
+			
+			<p:ajax event="rowUnselect" update="planetaForm:planetasToolbar" />			
+			
+			<p:column headerText="ID" sortBy="#{planeta.id}">
+				<h:outputText value="#{planeta.id}" />
+			</p:column>
+	
+			<p:column headerText="Nome" sortBy="#{planeta.nome}">
+				<h:outputText value="#{planeta.nome}" />
+			</p:column>
+	
+			<p:column headerText="Clima" sortBy="#{planeta.clima}"> 
+				<h:outputText value="#{planeta.clima}" />
+			</p:column>
+	
+			<p:column headerText="Terreno" sortBy="#{planeta.terreno}">
+				<h:outputText value="#{planeta.terreno}" />
+			</p:column>
+			
+			<p:column headerText="Aparições em filmes" sortBy="#{planeta.qntdFilmes}">
+				<h:outputText value="#{planeta.qntdFilmes}" />
+			</p:column>
+		</p:dataTable>
+		
+	</h:form>
+</ui:define>
+</ui:composition>
+
+
+
+

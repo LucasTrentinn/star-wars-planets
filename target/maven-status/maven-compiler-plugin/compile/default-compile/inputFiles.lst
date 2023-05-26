@@ -1,0 +1,8 @@
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/repository/SchemaGeneration.java
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/service/PlanetasService.java
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/repository/Planetas.java
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/model/Planeta.java
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/util/TransacionalInterceptor.java
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/repository/LayerPersistence.java
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/util/Transacional.java
+/home/lucas/eclipse-workspace/star-wars-planets/src/main/java/com/example/erp/util/EntityManagerProducer.java

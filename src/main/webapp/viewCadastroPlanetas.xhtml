@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Novo Planeta</title>
+</h:head>
+
+<h:body>
+	<f:metadata>
+		<f:viewAction action="#{planetasBean.prepararNovoPlaneta}" />
+	</f:metadata>
+	
+	<h:form>
+		<p:focus context="formGrid"/>
+	
+		<p:messages id="msgs"/>
+		
+		<h:panelGrid id="formGrid" columns="2" rendered="#{planetasBean.planeta ne null}">
+			<p:outputLabel value="Nome: " for="nome"/>
+			<p:inputText id="nome" size="50" maxlength="80" value="#{planetasBean.planeta.nome}" required="true" />
+			
+			<p:outputLabel value="Clima: " for="clima"/>
+			<p:inputText id="clima" size="50" maxlength="80" value="#{planetasBean.planeta.clima}" required="true" />
+			
+			<p:outputLabel value="Terreno: " for="terreno"/>
+			<p:inputText id="terreno" size="50" maxlength="80" value="#{planetasBean.planeta.terreno}" required="true" />
+			
+			<p:spacer height="40px"/>
+			
+			<p:outputLabel value="" />
+			<p:commandButton value="Salvar" update="@form" actionListener="#{planetasBean.salvarPlaneta}" />			
+		</h:panelGrid>	
+	</h:form>
+</h:body>
+
+</html>
