@@ -1,0 +1,7 @@
+Questão: Em uma estrutura git onde temos as branchs master e develop, após receber duas solicitações, uma para correção de um erro e outra para criação de uma nova funcionalidade. Como deveria ser criada as branchs segundo o gitflow?
+
+Reposta:
+1. As duas solicitações devem ser feitas em branchs separadas identificadas propriamente como "bug" e "feature", ambas branchs tem como origem a branch "develop".
+2. Quando finalizado o trabalho em ambas, o commit deve ser feito na própria branch onde serão realizados os testes necessários.
+3. Estando tudo certo nas branchs pode-se realizar o merge com a branch develop, onde mais testes serão realizados.
+4. Por fim, é feito na branch develop o merge com a branch main.
