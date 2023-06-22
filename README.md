@@ -15,6 +15,7 @@ If needed:
 
 	-> Configure your local server to your IDE and link this repository to it;
 	-> Go to the 'persistence.xml' archive and change user and password to your local database (it uses "root" and empty password as default);
+	-> Create a local database named starwarsplanets;
 
 Then, run the local server and open [http://localhost:8080/star-wars-planets/](http://localhost:8080/star-wars-planets/) with your browser to use it.
 
